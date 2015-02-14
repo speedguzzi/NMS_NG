@@ -1,1 +1,1 @@
-mibdirs +/opt/librenms/mibs
+mibdirs +/opt/NMS_NG/mibs

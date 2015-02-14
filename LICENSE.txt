@@ -1,7 +1,7 @@
 NOTE
 ----
 
-LibreNMS is covered by the GPLv3, and includes exceptions for included
+NMS_NG is covered by the GPLv3, and includes exceptions for included
 third-party packages.  Please see README.md for full details.
 
 

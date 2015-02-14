@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p dev/librenms && cd $_
-curl -O http://wkennedy.co/uploads/librenms/Vagrantfile
-curl -O http://wkennedy.co/uploads/librenms/bootstrap.sh
+mkdir -p dev/NMS_NG && cd $_
+curl -O http://xxx.com/uploads/NMS_NG/Vagrantfile
+curl -O http://xxx.com/uploads/NMS_NG/bootstrap.sh
 chmod +x bootstrap.sh
 vagrant up

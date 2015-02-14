@@ -10,7 +10,7 @@
     //              Add the WatchMailLog Daemon to the rc.local so its start on server boot
     //              Run the WatchMailLog Daemon to start grabbing statistics from log files
     //              Add the following to your snmpd.conf file:
-    //              extend mailwatch /opt/librenms/scripts/mailwatch.php
+    //              extend mailwatch /opt/NMS_NG/scripts/mailwatch.php
     ///
     //      Version 1.0 By:
     //              All In One - Dennis de Houx <info@all-in-one.be>
@@ -20,7 +20,7 @@
 
     // START SETTINGS ///
 
-	$mailstats	= "/opt/librenms/scripts/watchmaillog/watchmaillog_counters";
+	$mailstats	= "/opt/NMS_NG/scripts/watchmaillog/watchmaillog_counters";
 
     // END SETTINGS ///
 

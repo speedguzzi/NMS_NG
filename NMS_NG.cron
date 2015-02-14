@@ -1,0 +1,5 @@
+33  */6   * * *   root    /opt/NMS_NG/discovery.php -h all >> /dev/null 2>&1
+*/5  *    * * *   root    /opt/NMS_NG/discovery.php -h new >> /dev/null 2>&1
+*/5  *    * * *   root    /opt/NMS_NG/poller-wrapper.py 4 >> /dev/null 2>&1
+15   0    * * *   root    /bin/sh /opt/NMS_NG/daily.sh >> /dev/null 2>&1
+*    *    * * *   root    /opt/NMS_NG/alerts.php >> /dev/null 2>&1

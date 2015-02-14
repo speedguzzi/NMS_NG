@@ -33,7 +33,7 @@ class ircbot {
 	private $port     = "";
 	private $ssl      = false;
 	private $pass     = "";
-	private $nick     = "LibreNMS";
+	private $nick     = "NMS_NG";
 	private $chan     = array();
 	private $commands = array("auth", "quit", "listdevices", "device", "port", "down", "version", "status", "log", "help", "reload", "join");
 	private $external = array();
@@ -360,7 +360,7 @@ class ircbot {
 				if( $this->debug ) {
 					$this->log("Auth for '".$params[0]."', ID: '".$user['user_id']."', Token: '".$token."', Mail: '".$user['email']."'");
 				}
-				if(send_mail($user['email'], "LibreNMS IRC-Bot Authtoken", "Your Authtoken for the IRC-Bot:\r\n\r\n".$token."\r\n\r\n") === true) {
+				if(send_mail($user['email'], "NMS_NG IRC-Bot Authtoken", "Your Authtoken for the IRC-Bot:\r\n\r\n".$token."\r\n\r\n") === true) {
 					return $this->respond("Token sent!");
 				} else {
 					return $this->respond("Sorry, seems like mail doesnt like us.");

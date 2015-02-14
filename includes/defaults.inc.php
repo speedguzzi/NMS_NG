@@ -27,7 +27,7 @@ error_reporting(E_ERROR);
 
 // Default directories
 
-$config['project_name']     = "LibreNMS";
+$config['project_name']     = "NMS_NG";
 $config['project_id']     = strtolower($config['project_name']);
 
 $config['temp_dir']      = "/tmp";
@@ -40,10 +40,10 @@ $config['own_hostname'] = "localhost";
 // Location of executables
 
 $config['rrdtool']          = "/usr/bin/rrdtool";
-$config['fping']            = "/usr/bin/fping";
+$config['fping']            = "/usr/sbin/fping";
 $config['fping_options']['retries'] = 3;
 $config['fping_options']['timeout'] = 500;
-$config['fping6']           = "/usr/bin/fping6";
+$config['fping6']           = "/usr/sbin/fping6";
 $config['snmpwalk']         = "/usr/bin/snmpwalk";
 $config['snmpget']          = "/usr/bin/snmpget";
 $config['snmpbulkwalk']     = "/usr/bin/snmpbulkwalk";
@@ -101,8 +101,8 @@ if (isset($_SERVER["SERVER_NAME"]) && isset($_SERVER["SERVER_PORT"]))
   }
 }
 
-$config['project_url']      = "https://github.com/librenms/";
-$config['project_issues']   = "https://github.com/librenms/librenms/issues";
+$config['project_url']      = "https://github.com/speedguzzi/";
+$config['project_issues']   = "https://github.com/speedguzzi/NMS_NG/issues";
 $config['title_image']      = "";
 $config['stylesheet']       = "css/styles.css";
 $config['mono_font']        = "DejaVuSansMono";
@@ -282,7 +282,7 @@ $config['port_descr_parser']            = "includes/port-descr-parser.inc.php"; 
 $config['enable_ports_Xbcmc']           = 1; # Enable ifXEntry broadcast/multicast
 $config['enable_ports_etherlike']       = 0; # Enable Polling EtherLike-MIB (doubles interface processing time)
 $config['enable_ports_junoseatmvp']     = 0; # Enable JunOSe ATM VC Discovery/Poller
-$config['enable_ports_adsl']            = 1; # Enable ADSL-LINE-MIB
+$config['enable_ports_adsl']            = 0; # Enable ADSL-LINE-MIB
 $config['enable_ports_poe']             = 0; # Enable PoE stats collection
 
 // Billing System Configuration

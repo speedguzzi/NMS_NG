@@ -13,9 +13,9 @@ if(file_exists('../config.php') && $stage != "6")
 $modules = array('gd','mysql','snmp','mcrypt');
 
 $dbhost = $_POST['dbhost'] ?: 'localhost';
-$dbuser = $_POST['dbuser'] ?: 'librenms';
+$dbuser = $_POST['dbuser'] ?: 'NMS_NG';
 $dbpass = $_POST['dbpass'] ?: '';
-$dbname = $_POST['dbname'] ?: 'librenms';
+$dbname = $_POST['dbname'] ?: 'NMS_NG';
 $add_user = $_POST['add_user'] ?: '';
 $add_pass = $_POST['add_pass'] ?: '';
 $add_email = $_POST['add_email'] ?: '';
@@ -381,7 +381,7 @@ $config_file = <<<"EOD"
 
 ### This should *only* be set if you want to *force* a particular hostname/port
 ### It will prevent the web interface being usable form any other hostname
-#\$config\['base_url'\]        = "http://librenms.company.com";
+#\$config\['base_url'\]        = "http://NMS_NG.company.com";
 
 ### Enable this to use rrdcached. Be sure rrd_dir is within the rrdcached dir
 ### and that your web server has permission to talk to rrdcached.
@@ -414,7 +414,7 @@ EOD;
     {
       if(fwrite($handle, '<?php') === FALSE)
       {
-        echo("<div class='alert alert-danger'>We couldn't create the config.php file, please create this manually before continuing by copying the below into a config.php in the root directory of your install (typically /opt/librenms/)</div>");
+        echo("<div class='alert alert-danger'>We couldn't create the config.php file, please create this manually before continuing by copying the below into a config.php in the root directory of your install (typically /opt/NMS_NG/)</div>");
         echo("<pre>&lt;?php\n".stripslashes($config_file)."</pre>");
       }
       else
@@ -539,7 +539,7 @@ elseif($stage == "6")
       <div class="col-md-3">
       </div>
       <div class="col-md-6">
-        <div class="alert alert-success">Thank you for setting up LibreNMS, you can now click <a href="/">here to login to your new install.</a></div>
+        <div class="alert alert-success">Thank you for setting up NMS_NG, you can now click <a href="/">here to login to your new install.</a></div>
       </div>
       <div class="col-md-3">
       </div>

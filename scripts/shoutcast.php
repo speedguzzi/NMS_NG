@@ -9,9 +9,9 @@
     //      Install:
     //              Edit the shoutcast.conf file
     //              Add a crontab (every 5 min) for:
-    //              /opt/librenms/scripts/shoutcast.php makeCache
+    //              /opt/NMS_NG/scripts/shoutcast.php makeCache
     //              Add the following to your snmpd.conf file:
-    //              extend shoutcast /opt/librenms/scripts/shoutcast.php
+    //              extend shoutcast /opt/NMS_NG/scripts/shoutcast.php
     ///
     //      Version 1.1 By:
     //              All In One - Dennis de Houx <info@all-in-one.be>
@@ -21,8 +21,8 @@
 
     // START SETTINGS ///
 
-	$config		= "/opt/librenms/scripts/shoutcast.conf";
-	$cache		= "/opt/librenms/scripts/shoutcast.cache";
+	$config		= "/opt/NMS_NG/scripts/shoutcast.conf";
+	$cache		= "/opt/NMS_NG/scripts/shoutcast.cache";
 
     // END SETTINGS ///
 
