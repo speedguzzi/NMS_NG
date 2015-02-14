@@ -1,7 +1,11 @@
-LibreNMS is a fork of [Observium][1].  Observium was written by:
+NMS_NG is a fork of [LibreNMS][2] which is an fork of [Observium][1].  
+Observium was written by:
 - Adam Armstrong
 - Tom Laermans
 - various others as indicated in the file contents and commit logs
+
+Contributors to NMS_NG:
+- Uwe Blais (speedguzzi)
 
 Contributors to LibreNMS:
 - Paul Gear <github@libertysys.com.au> (paulgear)
@@ -13,4 +17,4 @@ Contributors to LibreNMS:
 - Søren Friis Rosiak <sorenrosiak@gmail.com>> (rosiak)
 
 [1]: http://observium.org/ "Observium web site"
-
+[2]: http://libreNMS.org/ "LibreNMS web site"
