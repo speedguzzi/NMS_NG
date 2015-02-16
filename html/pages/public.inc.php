@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of LibreNMS
+ * This file is part of NMS_NG
  *
  * Copyright (c) 2014 Bohdan Sanders <http://bohdans.com/>
  *

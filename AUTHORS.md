@@ -17,4 +17,4 @@ Contributors to LibreNMS:
 - Søren Friis Rosiak <sorenrosiak@gmail.com>> (rosiak)
 
 [1]: http://observium.org/ "Observium web site"
-[2]: http://libreNMS.org/ "LibreNMS web site"
+[2]: http://LibreNMS.org/ "LibreNMS web site"

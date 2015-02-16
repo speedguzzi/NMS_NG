@@ -1,7 +1,7 @@
 Agent setup
 -----------
 
-To gather data from remote systems you can use LibreNMS in combination with check_mk (included in the scripts directory).
+To gather data from remote systems you can use NMS_NG in combination with check_mk (included in the scripts directory).
 
 On each of the hosts you would like to use the agent on then you need to do the following:
 
@@ -31,7 +31,7 @@ mkdir -p /usr/lib/check_mk_agent/plugins /usr/lib/check_mk_agent/local
 /etc/init.d/xinetd restart
 ```
 
-* Login to the LibreNMS web interface and edit the device you want to monitor. Under the modules section, ensure that unix-agent is enabled.
+* Login to the NMS_NG web interface and edit the device you want to monitor. Under the modules section, ensure that unix-agent is enabled.
 * Then under Applications, enable the apps that you plan to monitor.
 * Wait, in around 10 minutes you should start seeing data in your graphs under Apps for the device.
 
@@ -81,11 +81,10 @@ And that your tinydns-instance is located in `/service/dns`, adjust this path if
 1. Replace your _log_'s `run` file, typically located in `/service/dns/log/run` with:  
   ```
   #!/bin/sh
-  
+
   exec setuidgid dnslog tinystats ./main/tinystats/ multilog t n3 s250000 ./main/
   ```
 2. Create tinystats directory and chown:  
   `mkdir /service/dns/log/main/tinystats && chown dnslog:nofiles /service/dns/log/main/tinystats`
 3. Restart TinyDNS and Daemontools: `/etc/init.d/svscan restart`  
    _Note_: Some say `svc -t /service/dns` is enough, on my install (Gentoo) it doesnt rehook the logging and I'm forced to restart it entirely.
-

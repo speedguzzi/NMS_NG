@@ -38,13 +38,13 @@ Describes the API structure.
 
 ## <a name="api-versioning">`Versioning`</a> [`top`](#top)
 
-Versioning an API is a minefield which saw us looking at numerous options on how to do this. Paul wrote an excellent blog post which touches on this: http://blog.librenms.org/2014/09/restful-apis/
+Versioning an API is a minefield which saw us looking at numerous options on how to do this. Paul wrote an excellent blog post which touches on this: http://blog.NMS_NG.org/2014/09/restful-apis/
 
 We have currently settled on using versioning within the API end point itself `/api/v0`. As the API itself is new and still in active development we also decided that v0 would be the best starting point to indicate it's in development.
 
 ## <a name="api-tokens">`Tokens`</a> [`top`](#top)
 
-To access any of the token end points you will be required to authenticate using a token. Tokens can be created directly from within the LibreNMS web interface by going to `/api-access/`.
+To access any of the token end points you will be required to authenticate using a token. Tokens can be created directly from within the NMS_NG web interface by going to `/api-access/`.
 
 - Click on 'Create API access token'.
 - Select the user you would like to generate the token for.
@@ -58,13 +58,13 @@ Whilst this documentation will describe and show examples of the end points, we'
 You can do this by first calling `/api/v0`:
 
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0
 
 Output
 {
- "list_bgp": "https://librenms.org/api/v0/bgp",
+ "list_bgp": "https://NMS_NG.org/api/v0/bgp",
   ...
- "edit_rule": "https://librenms.org/api/v0/rules"
+ "edit_rule": "https://NMS_NG.org/api/v0/rules"
 }
 ```
 
@@ -76,7 +76,7 @@ Input to the API is done in three different ways, sometimes a combination two or
 - Passing parameters via the query string. For example you can list all devices on your install but limit the output to devices that are currently down: `/api/v0/devices?type=down`
 - Passing data in via JSON, this will mainly be used when adding or updating information via the API, for instance adding a new device:
 ```curl
-curl -X POST -d '{"hostname":"localhost.localdomain","version":"v1","community":"public"}'-H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
+curl -X POST -d '{"hostname":"localhost.localdomain","version":"v1","community":"public"}'-H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices
 ```
 
 ## <a name="api-output">`Output`</a> [`top`](#top)
@@ -100,11 +100,11 @@ Route: /api/v0/devices/:hostname
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
+curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost
 ```
 
 Output:
@@ -134,11 +134,11 @@ Route: /api/v0/devices/:hostname
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost
 ```
 
 Output:
@@ -167,11 +167,11 @@ Route: /api/v0/devices/:hostname/graphs
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/graphs
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost/graphs
 ```
 
 Output:
@@ -215,7 +215,7 @@ Input:
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/device_poller_perf
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost/device_poller_perf
 ```
 
 Output:
@@ -236,7 +236,7 @@ Input:
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost/ports
 ```
 
 Output:
@@ -275,7 +275,7 @@ Input:
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost/ports/eth0
 ```
 
 Output:
@@ -312,7 +312,7 @@ Input:
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/ports/eth0/port_bits
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost/ports/eth0/port_bits
 ```
 
 Output:
@@ -332,7 +332,7 @@ Input:
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices?order=hostname%20DESC&type=down
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices?order=hostname%20DESC&type=down
 ```
 
 Output:
@@ -380,7 +380,7 @@ Input (JSON):
 
 Example:
 ```curl
-curl -X POST -d '{"hostname":"localhost.localdomain","version":"v1","community":"public"}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices
+curl -X POST -d '{"hostname":"localhost.localdomain","version":"v1","community":"public"}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices
 ```
 
 Output:
@@ -406,7 +406,7 @@ Input:
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/bgp
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/bgp
 ```
 
 Output:
@@ -433,11 +433,11 @@ Route: /api/v0/devices/:hostname/vlans
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/devices/localhost/vlans
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/devices/localhost/vlans
 ```
 
 Output:
@@ -469,11 +469,11 @@ Route: /api/v0/alerts/:id
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/1
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/alerts/1
 ```
 
 Output:
@@ -505,11 +505,11 @@ Route: /api/v0/alerts/:id
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -X PUT -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts/1
+curl -X PUT -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/alerts/1
 ```
 
 Output:
@@ -533,7 +533,7 @@ Input:
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/alerts
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/alerts
 ```
 
 Output:
@@ -567,11 +567,11 @@ Route: /api/v0/rules/:id
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules/1
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/rules/1
 ```
 
 Output:
@@ -603,11 +603,11 @@ Route: /api/v0/rules/:id
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules/1
+curl -X DELETE -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/rules/1
 ```
 
 Output:
@@ -625,15 +625,15 @@ List the alert rules.
 
 Route: /api/v0/rules
 
- - 
+ -
 
 Input:
 
- - 
+ -
 
 Example:
 ```curl
-curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+curl -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/rules
 ```
 
 Output:
@@ -660,7 +660,7 @@ Add a new alert rule.
 
 Route: /api/v0/rules
 
- - 
+ -
 
 Input (JSON):
 
@@ -669,13 +669,13 @@ Input (JSON):
  - severity: The severity level the alert will be raised against, Ok, Warning, Critical.
  - disabled: Whether the rule will be disabled or not, 0 = enabled, 1 = disabled
  - count: This is how many polling runs before an alert will trigger and the frequency.
- - delay: Delay is when to start alerting and how frequently. The value is stored in seconds but you can specify minutes, hours or days by doing 5 m, 5 h, 5 d for each one. 
+ - delay: Delay is when to start alerting and how frequently. The value is stored in seconds but you can specify minutes, hours or days by doing 5 m, 5 h, 5 d for each one.
  - mute: If mute is enabled then an alert will never be sent but will show up in the Web UI (true or false).
 
 
 Example:
 ```curl
-curl -X POST -d '{"device_id":"-1", "rule":"%devices.os != \"Cisco\"","severity": "critical","count":15,"delay":"5 m","mute":false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+curl -X POST -d '{"device_id":"-1", "rule":"%devices.os != \"Cisco\"","severity": "critical","count":15,"delay":"5 m","mute":false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/rules
 ```
 
 Output:
@@ -693,7 +693,7 @@ Edit an existing alert rule
 
 Route: /api/v0/rules
 
- - 
+ -
 
 Input (JSON):
 
@@ -703,12 +703,12 @@ Input (JSON):
  - severity: The severity level the alert will be raised against, Ok, Warning, Critical.
  - disabled: Whether the rule will be disabled or not, 0 = enabled, 1 = disabled
  - count: This is how many polling runs before an alert will trigger and the frequency.
- - delay: Delay is when to start alerting and how frequently. The value is stored in seconds but you can specify minutes, hours or days by doing 5 m, 5 h, 5 d for each one. 
+ - delay: Delay is when to start alerting and how frequently. The value is stored in seconds but you can specify minutes, hours or days by doing 5 m, 5 h, 5 d for each one.
  - mute: If mute is enabled then an alert will never be sent but will show up in the Web UI (true or false).
 
 Example:
 ```curl
-curl -X PUT -d '{"rule_id":1,"device_id":"-1", "rule":"%devices.os != \"Cisco\"","severity": "critical","count":15,"delay":"5 m","mute":false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://librenms.org/api/v0/rules
+curl -X PUT -d '{"rule_id":1,"device_id":"-1", "rule":"%devices.os != \"Cisco\"","severity": "critical","count":15,"delay":"5 m","mute":false}' -H 'X-Auth-Token: YOURAPITOKENHERE' https://NMS_NG.org/api/v0/rules
 ```
 
 Output:

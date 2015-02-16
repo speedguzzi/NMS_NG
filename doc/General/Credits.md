@@ -1,9 +1,9 @@
-LibreNMS is a fork of the last GPL-licensed revision of Observium.
+NMS_NG is a fork of the last GPL-licensed revision of Observium.
   http://observium.org/
   Copyright 2006-2012 Adam Armstrong <adama@memetic.org>.
   GPLv3
 
-LibreNMS ships with the following software components:
+NMS_NG ships with the following software components:
 
 - Bootstrap Datetime picker
   https://github.com/Eonasdan/bootstrap-datetimepicker

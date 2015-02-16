@@ -104,7 +104,7 @@ if( $config['twofactor'] === true ) {
   </div>
 </div>";
       if( $twofactor['counter'] !== false ) {
-        $twofactor['uri'] = "otpauth://hotp/".$_SESSION['username']."?issuer=LibreNMS&counter=".$twofactor['counter']."&secret=".$twofactor['key'];
+        $twofactor['uri'] = "otpauth://hotp/".$_SESSION['username']."?issuer=NMS_NG&counter=".$twofactor['counter']."&secret=".$twofactor['key'];
         $twofactor['text'] .= "<div class='form-group'>
   <label for='twofactorcounter' class='col-sm-2 control-label'>Counter</label>
   <div class='col-sm-4'>
@@ -112,7 +112,7 @@ if( $config['twofactor'] === true ) {
   </div>
 </div>";
       } else {
-        $twofactor['uri'] = "otpauth://totp/".$_SESSION['username']."?issuer=LibreNMS&secret=".$twofactor['key'];
+        $twofactor['uri'] = "otpauth://totp/".$_SESSION['username']."?issuer=NMS_NG&secret=".$twofactor['key'];
       }
       echo '<div id="twofactorqrcontainer">
 <div id="twofactorqr"></div>

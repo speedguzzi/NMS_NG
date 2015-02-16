@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * NMS_NG
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ http://www.lathwood.co.uk/fa>
  *
@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-sm-12">
 <?php
-    print_error('Documentation for the API has now been moved to GitHub, you can go straight to the API Wiki from <a href="https://github.com/librenms/librenms/wiki/API-Docs" target="_blank">here</a>.');
+    print_error('Documentation for the API has now been moved to GitHub, you can go straight to the API Wiki from <a href="https://github.com/speedguzzi/NMS_NG/wiki/API-Docs" target="_blank">here</a>.');
 ?>
     </div>
 </div>

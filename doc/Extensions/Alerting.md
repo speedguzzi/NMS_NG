@@ -14,7 +14,7 @@ Table of Content:
 
 # <a name="about">About</a>
 
-LibreNMS includes a highly customizable alerting system.  
+NMS_NG includes a highly customizable alerting system.  
 The system requires a set of user-defined rules to evaluate the situation of each device, port, service or any other entity.
 
 This document only covers the usage of it. See the [DEVELOPMENT.md](https://github.com/f0o/glowing-tyrion/blob/master/DEVELOPMENT.md) for code-documentation.
@@ -105,8 +105,8 @@ Alert sent to: {foreach %contacts}%value <%key> {/foreach}
 Transports are located within `$config['install_dir']/includes/alerts/transports.*.php` and defined as well as configured via `$config['alert']['transports']['Example'] = 'Some Options'`.  
 
 Contacts will be gathered automatically and passed to the configured transports.  
-The contacts will always include the `SysContact` defined in the Device's SNMP configuration and also every LibreNMS-User that has at least `read`-permissions on the entity that is to be alerted.  
-At the moment LibreNMS only supports Port or Device permissions.  
+The contacts will always include the `SysContact` defined in the Device's SNMP configuration and also every NMS_NG-User that has at least `read`-permissions on the entity that is to be alerted.  
+At the moment NMS_NG only supports Port or Device permissions.  
 To include users that have `Global-Read` or `Administrator` permissions it is required to add these additions to the `config.php` respectively:
 ```php
 $config['alert']['globals'] = true; //Include Global-Read into alert-contacts
@@ -120,7 +120,7 @@ E-Mail transport is enabled with adding the following to your `config.php`:
 $config['alert']['transports']['mail'] = true;
 ```
 
-The E-Mail transports uses the same email-configuration like the rest of LibreNMS.  
+The E-Mail transports uses the same email-configuration like the rest of NMS_NG.  
 As a small reminder, here is it's configuration directives including defaults:
 ```php
 $config['email_backend']                   = 'mail';               // Mail backend. Allowed: "mail" (PHP's built-in), "sendmail", "smtp".
@@ -157,16 +157,15 @@ $config['alert']['transports']['api']['get'][] = "https://api.thirdparti.es/issu
 ## <a name="transports-nagios">Nagios Compatible</a>
 
 The nagios transport will feed a FIFO at the defined location with the same format that nagios would.  
-This allows you to use other Alerting-Systems to work with LibreNMS, for example [Flapjack](http://flapjack.io).
+This allows you to use other Alerting-Systems to work with NMS_NG, for example [Flapjack](http://flapjack.io).
 ```php
 $config['alert']['transports']['nagios'] = "/path/to/my.fifo"; //Flapjack expects it to be at '/var/cache/nagios3/event_stream.fifo'
 ```
 
 ## <a name="transports-irc">IRC</a>
 
-The IRC transports only works together with the LibreNMS IRC-Bot.  
-Configuration of the LibreNMS IRC-Bot is described [here](https://github.com/librenms/librenms/blob/master/doc/Extensions/IRC-Bot.md).  
+The IRC transports only works together with the NMS_NG IRC-Bot.  
+Configuration of the NMS_NG IRC-Bot is described [here](https://github.com/speedguzzi/NMS_NG/blob/master/doc/Extensions/IRC-Bot.md).  
 ```php
 $config['alert']['transports']['irc'] = true;
 ```
-

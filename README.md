@@ -4,7 +4,7 @@ Introduction
 NMS_NG is an autodiscovering PHP/MySQL/SNMP based network monitoring
 which includes support for a wide range of network hardware and operating
 systems including Cisco, Linux, FreeBSD, Juniper, Brocade, Foundry, HP and
-many more.  NMS_NG is a community-based fork of [LibreNMS][8] which is a fork of 
+many more.  NMS_NG is a community-based fork of [LibreNMS][8] which is a fork of
 [Observium][9].
 
 We intend NMS_NG to be a viable project and community that:
@@ -47,7 +47,7 @@ License
 -------
 
 Copyright (C) 2006-2012 Adam Armstrong <adama@memetic.org>
-Copyright (C) 2013-2014 by individual LibreNMS contributors
+Copyright (C) 2013-2014 by individual NMS_NG contributors
 Copyright (C) 2015-2015 by individual NMS_NG contributors
 
  This program is free software: you can redistribute it and/or modify
@@ -87,7 +87,7 @@ exception):
 
 [1]: https://groups.google.com/forum/#!forum/NMS_NG-project "NMS_NG"
 [2]: https://github.com/speedguzzi/NMS_NG "Main NMS_NG GitHub repo"
-[4]: irc://irc.freenode.net/##librenms "NMS_NG IRC channel"
+[4]: irc://irc.freenode.net/##NMS_NG "NMS_NG IRC channel"
 [5]: https://github.com/speedguzzi/NMS_NG/tree/master/doc/
 [6]: http://freenode.net/channel_guidelines.shtml "Freenode channel guidelines"
 [7]: http://freenode.net/catalysts.shtml "Freenode community catalysts"
@@ -98,4 +98,3 @@ exception):
 [13]: http://freenode.net/philosophy.shtml "Freenode philosophy"
 [14]: https://github.com/speedguzzi/NMS_NG/tree/master/LICENSE.txt
 [15]: https://github.com/speedguzzi/NMS_NG/tree/master/doc/CONTRIBUTING.md
-

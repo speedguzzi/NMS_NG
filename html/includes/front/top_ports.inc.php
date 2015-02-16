@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS front page top ports graph
+ * NMS_NG front page top ports graph
  * - Find most utilised ports that have been polled in the last N minutes
  *
  * Copyright (c) 2013 Gear Consulting Pty Ltd <http://libertysys.com.au/>

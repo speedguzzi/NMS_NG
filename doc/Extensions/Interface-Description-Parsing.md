@@ -9,20 +9,20 @@ Table of Content:
 
 # <a name="about">About</a>:
 
-Librenms can interpret, display and group certain additional information on ports.
-For this a small `bash` script is supplied in `librenms/scripts` called `ifAlias`.
+NMS_NG can interpret, display and group certain additional information on ports.
+For this a small `bash` script is supplied in `NMS_NG/scripts` called `ifAlias`.
 
 <a name="setup">Setup</a>:
 
-This requires a little bit of setup on the monitored Server (Not the server running librenms!):
+This requires a little bit of setup on the monitored Server (Not the server running NMS_NG!):
 
-*   Add `ifAlias` from `/path/to/librenms/scripts/` or download it from [here](#source) to the Server and make
+*   Add `ifAlias` from `/path/to/NMS_NG/scripts/` or download it from [here](#source) to the Server and make
     it executeable `chmod +x /path/to/ifAlias`
 *   Add to `snmpd.conf` something like:
     ``pass .1.3.6.1.2.1.31.1.1.1.18 /path/to/ifAlias``
 *   Restart your `net-snmpd`
 
-There are no changes to be made or additions to insteall for the polling librenms.
+There are no changes to be made or additions to insteall for the polling NMS_NG.
 
 Now you can set up your [keywords](#keywords) in your `/etc/network/interfaces`
 ``//Add more distributions than just Debian based``
@@ -52,4 +52,4 @@ See [examples](#examples) for formats.
 
 # <a name="source">Sourcecode</a>:
 
-* https://github.com/librenms/librenms/blob/master/scripts/ifAlias
+* https://github.com/speedguzzi/NMS_NG/blob/master/scripts/ifAlias

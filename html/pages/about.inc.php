@@ -115,7 +115,7 @@ echo("
 
   <div style="float: left; padding: 0px; width: 49%">
 
-    <h3>LibreNMS is an autodiscovering PHP/MySQL-based network monitoring system forked from the last GPL-licensed revision of Observium.</h3>
+    <h3>NMS_NG is an autodiscovering PHP/MySQL-based network monitoring system forked from the last GPL-licensed revision of Observium.</h3>
 <?php
 
 $project_name = $config['project_name'];
@@ -132,7 +132,7 @@ $version = `git rev-parse --short HEAD`;
 echo("
 <div class='table-responsive'>
     <table class='table table-condensed' border='0'>
-      <tr><td><b>Version</b></td><td><a href='http://www.librenms.org/changelog.html'>$version</a></td></tr>
+      <tr><td><b>Version</b></td><td><a href='http://www.NMS_NG.org/changelog.html'>$version</a></td></tr>
       <tr><td><b>DB Schema</b></td><td>#$schema_version</td></tr>
       <tr><td><b>Apache</b></td><td>$apache_version</td></tr>
       <tr><td><b>PHP</b></td><td>$php_version</td></tr>
@@ -145,15 +145,15 @@ echo("
 
 ?>
 
-    <h5>LibreNMS is a community-based project. Please feel free to join us and contribute code, documentation, and bug reports:</h5>
+    <h5>NMS_NG is a community-based project. Please feel free to join us and contribute code, documentation, and bug reports:</h5>
 
     <p>
-      <a href="http://www.librenms.org/">Web site</a> |
-      <a href="https://github.com/librenms/">GitHub</a> |
-      <a href="https://github.com/librenms/librenms/issues">Bug tracker</a> |
-      <a href="https://groups.google.com/forum/#!forum/librenms-project">Mailing list</a> |
-      <a href="http://twitter.com/librenms">Twitter</a> |
-      <a href="http://www.librenms.org/changelog.html">Changelog</a> |
+      <a href="http://www.NMS_NG.org/">Web site</a> |
+      <a href="https://github.com/NMS_NG/">GitHub</a> |
+      <a href="https://github.com/speedguzzi/NMS_NG/issues">Bug tracker</a> |
+      <a href="https://groups.google.com/forum/#!forum/NMS_NG-project">Mailing list</a> |
+      <a href="http://twitter.com/NMS_NG">Twitter</a> |
+      <a href="http://www.NMS_NG.org/changelog.html">Changelog</a> |
       <a href="#" data-toggle="modal" data-target="#git_log">Git log</a>
     </p>
 
@@ -162,7 +162,7 @@ echo("
 
     <h3>Contributors</h3>
 
-    <p>See the <a href="https://github.com/librenms/librenms/blob/master/AUTHORS.md">list of contributors</a> on GitHub.</p>
+    <p>See the <a href="https://github.com/speedguzzi/NMS_NG/blob/master/AUTHORS.md">list of contributors</a> on GitHub.</p>
 
     <h3>Acknowledgements</h3>
 

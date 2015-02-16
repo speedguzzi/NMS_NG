@@ -1,6 +1,6 @@
 <?php
 /*
- * LibreNMS front page graphs
+ * NMS_NG front page graphs
  *
  * Copyright (c) 2013 Gear Consulting Pty Ltd <http://libertysys.com.au/>
  *

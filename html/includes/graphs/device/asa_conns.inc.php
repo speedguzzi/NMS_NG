@@ -1,7 +1,7 @@
 <?php
 
 /*
- * LibreNMS
+ * NMS_NG
  *
  * Copyright (c) 2014 Neil Lathwood <https://github.com/laf/ fua http://www.lathwood.co.uk>
  *

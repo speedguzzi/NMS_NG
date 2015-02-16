@@ -15,9 +15,9 @@
 /**
  * Nagios Transport
  * @author f0o <f0o@devilcode.org>
- * @copyright 2014 f0o, LibreNMS
+ * @copyright 2014 f0o, NMS_NG
  * @license GPL
- * @package LibreNMS
+ * @package NMS_NG
  * @subpackage Alerts
  */
 
@@ -43,6 +43,6 @@ $format .= ($obj['state'] ? $obj['severity'] : "ok")."\t";
 $format .= 0."\t";
 $format .= 0."\t";
 $format .= str_replace("\n","",nl2br($obj['msg']))."\t";
-$format .= "NULL"; //FIXME: What's the HOSTPERFDATA equivalent for LibreNMS? Oo
+$format .= "NULL"; //FIXME: What's the HOSTPERFDATA equivalent for NMS_NG? Oo
 $format .= "\n";
 return file_put_contents($opts, $format);

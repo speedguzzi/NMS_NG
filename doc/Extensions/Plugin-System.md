@@ -1,6 +1,6 @@
 # Developing for the Plugin System
 
-This documentation will hopefully give you a basis for how to write a plugin for LibreNMS.
+This documentation will hopefully give you a basis for how to write a plugin for NMS_NG.
 
 A test plugin is available on GitHib: https://github.com/laf/Test
 
@@ -21,8 +21,8 @@ All files / folder names are case sensitive and must match.
 
 PluginName - This is a directory and needs to be named as per the plugin you are creating.
 
-PluginName.php - This file is used to process calls into the plugin from the main LibreNMS install.
-                 Here only functions within the class for your plugin that LibreNMS calls will be executed.
+PluginName.php - This file is used to process calls into the plugin from the main NMS_NG install.
+                 Here only functions within the class for your plugin that NMS_NG calls will be executed.
                  For a list of currently enabled system hooks, please see further down.
                  The minimum code required in this file is (replace Test with the name of your plugin):
 ```

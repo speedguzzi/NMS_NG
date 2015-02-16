@@ -9,7 +9,7 @@
 //
 // Copyright (c) 2012-2013 Gear Consulting Pty Ltd <http://libertysys.com.au/>
 //
-// Author:  Paul Gear <librenms@libertysys.com.au>
+// Author:  Paul Gear <NMS_NG@libertysys.com.au>
 // License: GPLv3
 //
 

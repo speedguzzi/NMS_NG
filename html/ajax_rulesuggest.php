@@ -16,9 +16,9 @@
 /**
  * Rule Suggestion-AJAX
  * @author Daniel Preussker <f0o@devilcode.org>
- * @copyright 2014 f0o, LibreNMS
+ * @copyright 2014 f0o, NMS_NG
  * @license GPL
- * @package LibreNMS/Alerts
+ * @package NMS_NG/Alerts
  */
 
 session_start();

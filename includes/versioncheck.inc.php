@@ -5,7 +5,7 @@
 // basis (i.e. disabled by default).  We should schedule it from cron rather
 // than putting it into the discovery process.
 
-// See https://github.com/librenms/librenms/issues/25 for some thoughts on where to go with this code under git.
+// See https://github.com/speedguzzi/NMS_NG/issues/25 for some thoughts on where to go with this code under git.
 
 /*
 

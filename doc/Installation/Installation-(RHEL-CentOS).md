@@ -17,18 +17,18 @@ Enter the MySQL root password to enter the MySQL command-line interface.
 Create database.
 
 ```sql
-CREATE DATABASE librenms;
-GRANT ALL PRIVILEGES ON librenms.*
-  TO 'librenms'@'<ip>'
+CREATE DATABASE NMS_NG;
+GRANT ALL PRIVILEGES ON NMS_NG.*
+  TO 'NMS_NG'@'<ip>'
   IDENTIFIED BY '<password>'
 ;
 FLUSH PRIVILEGES;
 exit
 ```
 
-Replace `<ip>` above with the IP of the server running LibreNMS.  If your database is on the same server as LibreNMS, you can just use `localhost` as the IP address.
+Replace `<ip>` above with the IP of the server running NMS_NG.  If your database is on the same server as NMS_NG, you can just use `localhost` as the IP address.
 
-If you are deploying a separate database server, you need to change the `bind-address`.  If your MySQL database resides on the same server as LibreNMS, you should skip this step.
+If you are deploying a separate database server, you need to change the `bind-address`.  If your MySQL database resides on the same server as NMS_NG, you should skip this step.
 
     vim /etc/my.cnf
 
@@ -57,16 +57,16 @@ Set `httpd` to start on system boot.
 
     chkconfig --levels 235 httpd on
 
-Next, add the following to `/etc/httpd/conf.d/librenms.conf`
+Next, add the following to `/etc/httpd/conf.d/NMS_NG.conf`
 
 ```apache
 <VirtualHost *:80>
-  DocumentRoot /opt/librenms/html/
-  ServerName  librenms.example.com
-  CustomLog /opt/librenms/logs/access_log combined
-  ErrorLog /opt/librenms/logs/error_log
+  DocumentRoot /opt/NMS_NG/html/
+  ServerName  NMS_NG.example.com
+  CustomLog /opt/NMS_NG/logs/access_log combined
+  ErrorLog /opt/NMS_NG/logs/error_log
   AllowEncodedSlashes On
-  <Directory "/opt/librenms/html/">
+  <Directory "/opt/NMS_NG/html/">
     AllowOverride All
     Options FollowSymLinks MultiViews
   </Directory>
@@ -91,18 +91,18 @@ Modify permissions and configuration for `php-fpm` to use nginx credentials.
     vi /etc/php-fpm.d/www.conf      # At line #12: Change `listen` to `/var/run/php5-fpm.sock`
                                     # At line #39-41: Change the `user` and `group` to `nginx`
 
-Add configuration for `nginx` at `/etc/nginx/conf.d/librenms` with the following content:
+Add configuration for `nginx` at `/etc/nginx/conf.d/NMS_NG` with the following content:
 
 ```nginx
 server {
  listen      80;
- server_name librenms.example.com;
- root        /opt/librenms/html;
+ server_name NMS_NG.example.com;
+ root        /opt/NMS_NG/html;
  index       index.php;
- access_log  /opt/librenms/logs/access_log;
- error_log   /opt/librenms/logs/error_log;
+ access_log  /opt/NMS_NG/logs/access_log;
+ error_log   /opt/NMS_NG/logs/error_log;
  location / {
-  try_files $uri $uri/ @librenms;
+  try_files $uri $uri/ @NMS_NG;
  }
  location ~ \.php {
   include fastcgi.conf;
@@ -112,7 +112,7 @@ server {
  location ~ /\.ht {
   deny all;
  }
- location @librenms {
+ location @NMS_NG {
   rewrite ^api/v0(.*)$ /api_v0.php/$1 last;
   rewrite ^(.+)$ /index.php/$1 last;
  }
@@ -124,8 +124,8 @@ server {
 You can clone the repository via HTTPS or SSH.  In either case, you need to ensure the appropriate port (443 for HTTPS, 22 for SSH) is open in the outbound direction for your server.
 
     cd /opt
-    git clone https://github.com/librenms/librenms.git librenms
-    cd /opt/librenms
+    git clone https://github.com/speedguzzi/NMS_NG.git NMS_NG
+    cd /opt/NMS_NG
 
 At this stage you can either launch the web installer by going to http://IP/install.php, follow the on-screen instructions then skip to the 'Web Interface' section further down. Alternatively if you want
 to continue the setup manually then just keep following these instructions.
@@ -133,7 +133,7 @@ to continue the setup manually then just keep following these instructions.
     cp config.php.default config.php
     vim config.php
 
-NOTE: The recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command `git clone git@github.com:librenms/librenms.git librenms` instead.
+NOTE: The recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command `git clone git@github.com:speedguzzi/NMS_NG.git NMS_NG` instead.
 
 Change the values to the right of the equal sign for lines beginning with `$config[db_]` to match your database information as setup above.
 
@@ -182,24 +182,24 @@ Discover localhost and poll it for the first time:
 
     php discovery.php -h all && php poller.php -h all
 
-The polling method used by LibreNMS is `poller-wrapper.py`, which was placed in
-the public domain by its author.  By default, the LibreNMS cronjob runs `poller-
-wrapper.py` with 16 threads.  The current LibreNMS recommendation is to use 4 th
+The polling method used by NMS_NG is `poller-wrapper.py`, which was placed in
+the public domain by its author.  By default, the NMS_NG cronjob runs `poller-
+wrapper.py` with 16 threads.  The current NMS_NG recommendation is to use 4 th
 reads per core.  The default if no thread count is `16 threads`.
 
-If the thread count needs to be changed, you can do so by editing `librenms.cron
-` before copying (or by editing `/etc/cron.d/librenms` if you've already copied the cron file).  Just add a number after `poller-wrapper.py`, as in the below ex
+If the thread count needs to be changed, you can do so by editing `NMS_NG.cron
+` before copying (or by editing `/etc/cron.d/NMS_NG` if you've already copied the cron file).  Just add a number after `poller-wrapper.py`, as in the below ex
 ample:
 
-    /opt/librenms/poller-wrapper.py 12 >> /dev/null 2>&1
+    /opt/NMS_NG/poller-wrapper.py 12 >> /dev/null 2>&1
 
 Create the cronjob
 
-    cp librenms.cron /etc/cron.d/librenms
+    cp NMS_NG.cron /etc/cron.d/NMS_NG
 
 ### Daily Updates ###
 
-LibreNMS performs daily updates by default.  At 00:15 system time every day, a `git pull --no-edit --quiet` is performed.  You can override this default by edit
+NMS_NG performs daily updates by default.  At 00:15 system time every day, a `git pull --no-edit --quiet` is performed.  You can override this default by edit
 ing your `config.php` file.  Remove the comment (the `#` mark) on the line:
 
     #$config['update'] = 0;

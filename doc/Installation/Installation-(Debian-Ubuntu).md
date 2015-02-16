@@ -15,18 +15,18 @@ Input the MySQL root password to enter the MySQL command-line interface.
 Create the database:
 
 ```sql
-CREATE DATABASE librenms;
-GRANT ALL PRIVILEGES ON librenms.*
-  TO 'librenms'@'<ip>'
+CREATE DATABASE NMS_NG;
+GRANT ALL PRIVILEGES ON NMS_NG.*
+  TO 'NMS_NG'@'<ip>'
   IDENTIFIED BY '<password>'
 ;
 FLUSH PRIVILEGES;
 exit
 ```
 
-Replace `<ip>` above with the IP or DNS name of the server running LibreNMS.  If your database is on the same server as LibreNMS, you can use `localhost`.
+Replace `<ip>` above with the IP or DNS name of the server running NMS_NG.  If your database is on the same server as NMS_NG, you can use `localhost`.
 
-If you are deploying a separate database server, you need to change the `bind-address`.  If your MySQL database resides on the same server as LibreNMS, you should skip this step.
+If you are deploying a separate database server, you need to change the `bind-address`.  If your MySQL database resides on the same server as NMS_NG, you should skip this step.
 
     vim /etc/mysql/my.cnf
 
@@ -57,21 +57,21 @@ examples are: "America/New York", "Australia/Brisbane", "Etc/UTC".
 
 ### Cloning ###
 
-LibreNMS is installed using git.  If you're not familiar with git, check out the [git book][2] or the tips at [git ready][3].  The initial install from github.com is called a `git clone`; subsequent updates are done through `git pull`.
+NMS_NG is installed using git.  If you're not familiar with git, check out the [git book][2] or the tips at [git ready][3].  The initial install from github.com is called a `git clone`; subsequent updates are done through `git pull`.
 
 You can clone the repository via HTTPS or SSH.  In either case, you need to ensure that the appropriate port (443 for HTTPS, 22 for SSH) is open in the outbound direction for your server.
 
     cd /opt
-    git clone https://github.com/librenms/librenms.git librenms
-    cd /opt/librenms
+    git clone https://github.com/speedguzzi/NMS_NG.git NMS_NG
+    cd /opt/NMS_NG
 
-The recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command `git clone git@github.com:librenms/librenms.git librenms` instead.
+The recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command `git clone git@github.com:speedguzzi/NMS_NG.git NMS_NG` instead.
 
-Sometimes the initial clone can take quite a while (nearly 3 minutes on a 10 Mbps fibre connection in Australia is a recent example).  If it's a big problem to you, you can save about 50% of the bandwidth by not pulling down the full git history.  This comes with some limitations (namely that you can't use it as the basis for further git repos), but if you're not planning to develop for LibreNMS it's an acceptable option.  To perform the initial clone without full history, run the following instead:
+Sometimes the initial clone can take quite a while (nearly 3 minutes on a 10 Mbps fibre connection in Australia is a recent example).  If it's a big problem to you, you can save about 50% of the bandwidth by not pulling down the full git history.  This comes with some limitations (namely that you can't use it as the basis for further git repos), but if you're not planning to develop for NMS_NG it's an acceptable option.  To perform the initial clone without full history, run the following instead:
 
     cd /opt
-    git clone --depth 1 https://github.com/librenms/librenms.git librenms
-    cd /opt/librenms
+    git clone --depth 1 https://github.com/speedguzzi/NMS_NG.git NMS_NG
+    cd /opt/NMS_NG
 
 
 ### Web Interface ###
@@ -85,16 +85,16 @@ First, create and chown the `rrd` directory and create the `logs` directory:
 
 > NOTE: If you're not running Ubuntu or Debian, you will need to change `www-data` to the user and group which run the Apache web server.
 
-Next, add the following to `/etc/apache2/sites-available/librenms.conf`:
+Next, add the following to `/etc/apache2/sites-available/NMS_NG.conf`:
 
 ```apache
 <VirtualHost *:80>
-  DocumentRoot /opt/librenms/html/
-  ServerName  librenms.example.com
-  CustomLog /opt/librenms/logs/access_log combined
-  ErrorLog /opt/librenms/logs/error_log
+  DocumentRoot /opt/NMS_NG/html/
+  ServerName  NMS_NG.example.com
+  CustomLog /opt/NMS_NG/logs/access_log combined
+  ErrorLog /opt/NMS_NG/logs/error_log
   AllowEncodedSlashes On
-  <Directory "/opt/librenms/html/">
+  <Directory "/opt/NMS_NG/html/">
     AllowOverride All
     Options FollowSymLinks MultiViews
   </Directory>
@@ -111,17 +111,17 @@ On at least Ubuntu 14.04 (and possibly other distributions and versions as well)
 
     php5enmod mcrypt
 
-Change `librenms.example.com` to the appropriate hostname for your domain, then enable the vhost and restart Apache:
+Change `NMS_NG.example.com` to the appropriate hostname for your domain, then enable the vhost and restart Apache:
 
-    a2ensite librenms.conf
+    a2ensite NMS_NG.conf
     a2enmod rewrite
     service apache2 restart
 
-(To get to your LibreNMS install externally, you'll also need add it to your DNS or hosts file.)
+(To get to your NMS_NG install externally, you'll also need add it to your DNS or hosts file.)
 
 ### Manual vs. web installer ###
 
-At this stage you can either launch the web installer by going to http://librenms.example.com/install.php, follow the onscreen instructions then skip to the 'Add localhost' section. Alternatively if you want to continue the setup manually then just keep following these instructions.
+At this stage you can either launch the web installer by going to http://NMS_NG.example.com/install.php, follow the onscreen instructions then skip to the 'Add localhost' section. Alternatively if you want to continue the setup manually then just keep following these instructions.
 
     cp config.php.default config.php
     vim config.php
@@ -150,17 +150,17 @@ Discover localhost and poll it for the first time:
 
     php discovery.php -h all && php poller.php -h all
 
-LibreNMS uses Job Snijders' [poller-wrapper.py][1].  By default, the cron job runs `poller-wrapper.py` with 16 threads.  The current recommendation is to use 4 threads per core as a rule of thumb.  If the thread count needs to be changed, you can do so by editing `librenms.cron` before copying (or by editing `/etc/cron.d/librenms` if you've already copied the cron file).  Just add a number after `poller-wrapper.py`, as in the example below:
+NMS_NG uses Job Snijders' [poller-wrapper.py][1].  By default, the cron job runs `poller-wrapper.py` with 16 threads.  The current recommendation is to use 4 threads per core as a rule of thumb.  If the thread count needs to be changed, you can do so by editing `NMS_NG.cron` before copying (or by editing `/etc/cron.d/NMS_NG` if you've already copied the cron file).  Just add a number after `poller-wrapper.py`, as in the example below:
 
-    /opt/librenms/poller-wrapper.py 12 >> /dev/null 2>&1
+    /opt/NMS_NG/poller-wrapper.py 12 >> /dev/null 2>&1
 
 Create the cronjob
 
-    ln -s $PWD/librenms.cron /etc/cron.d/librenms
+    ln -s $PWD/NMS_NG.cron /etc/cron.d/NMS_NG
 
 ### Daily Updates ###
 
-LibreNMS performs daily updates by default.  At 00:15 system time every day, a `git pull --no-edit --quiet` is performed.  You can override this default by editing your `config.php` file.  Remove the comment (the `#` mark) on the line:
+NMS_NG performs daily updates by default.  At 00:15 system time every day, a `git pull --no-edit --quiet` is performed.  You can override this default by editing your `config.php` file.  Remove the comment (the `#` mark) on the line:
 
     #$config['update'] = 0;
 
@@ -170,7 +170,7 @@ so that it looks like this:
 
 ### Install complete ###
 
-That's it!  You now should be able to log in to http://librenms.example.com/.  Please note that we have not covered HTTPS setup in this example, so your LibreNMS install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.
+That's it!  You now should be able to log in to http://NMS_NG.example.com/.  Please note that we have not covered HTTPS setup in this example, so your NMS_NG install is not secure by default.  Please do not expose it to the public Internet unless you have configured HTTPS and taken appropriate web server hardening steps.
 
 [1]: https://github.com/Atrato/observium-poller-wrapper
 [2]: http://git-scm.com/book

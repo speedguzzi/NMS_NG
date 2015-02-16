@@ -1,7 +1,7 @@
 Contributor Agreement
 ---------------------
 
-By contributing code to LibreNMS (whether by a github pull request, or by
+By contributing code to NMS_NG (whether by a github pull request, or by
 any other means), you assert that:
 
 - You have the rights to include the code, either as its original author,
@@ -29,7 +29,7 @@ commit log:
 Copyright
 ---------
 
-All contributors to LibreNMS retain copyright to their own code and are not
+All contributors to NMS_NG retain copyright to their own code and are not
 required to sign over their rights to any other party.
 
 We recommend that if you add a new file containing original code to the code
@@ -39,7 +39,7 @@ appropriate (although this is not legal advice ;-):
 ```
   <?php
   /*
-   * LibreNMS module to frob blurgs from a foo bar
+   * NMS_NG module to frob blurgs from a foo bar
    *
    * Copyright (c) 2014 Internet Widgitz Pty Ltd <http://example.com/>
    *
@@ -76,7 +76,7 @@ General Guidelines
   you need to reformat it after making the change, do so in a separate
   commit.
 
-- Please join us in IRC at irc.freenode.net in channel ##librenms if you're
+- Please join us in IRC at irc.freenode.net in channel ##NMS_NG if you're
   able.  Collaborating in real time makes the coordination of contributions
   easier.
 
@@ -114,7 +114,7 @@ message.
 
   Because contributing to Observium requires that you reassign copyright to
   Adam Armstrong, if you want to release the same code for both Observium
-  and LibreNMS, you need to release it for LibreNMS first and mark it with
+  and NMS_NG, you need to release it for NMS_NG first and mark it with
   your own copyright notice, then release it to Observium and remove your
   copyright, granting Adam ownership.
 
@@ -126,12 +126,12 @@ message.
 
 - Because the GPL's provisions about linking don't apply to PHP-based
   projects, we interpret the linking provisions of the license to refer to
-  the use of PHP library functions called from LibreNMS code.
+  the use of PHP library functions called from NMS_NG code.
 
-  We consider inclusion of files such as MIBs in the LibreNMS repository to
+  We consider inclusion of files such as MIBs in the NMS_NG repository to
   be merely aggregation in a distribution medium as per the last paragraph
   of the GPLv3 section 5 ("Conveying Modified Source Versions"), and because
-  they are not combined with LibreNMS to form a larger program, the GPLv3
+  they are not combined with NMS_NG to form a larger program, the GPLv3
   does not apply to them.  This is not a legal ruling - it is simply a
   statement of our intent and current interpretation.
 
@@ -158,7 +158,7 @@ Workflow:
 [branch]
         autosetuprebase = always
 ```
-- Fork the [LibreNMS repo master branch][2] in your own GitHub account.
+- Fork the [NMS_NG repo master branch][2] in your own GitHub account.
 - Create an [issue][3] explaining what work you plan to do.
 - Create a branch in your copy of the repo called issue-####, where #### is
   the issue number you created.
@@ -188,11 +188,11 @@ git push origin issue-####
 
 [1]: http://www.gnu.org/licenses/license-list.html
 "Free Software Foundation's license list"
-[2]: https://github.com/librenms/librenms/tree/master
-"LibreNMS master branch"
-[3]: https://github.com/librenms/librenms/issues
-"LibreNMS issue database"
+[2]: https://github.com/speedguzzi/NMS_NG/tree/master
+"NMS_NG master branch"
+[3]: https://github.com/speedguzzi/NMS_NG/issues
+"NMS_NG issue database"
 [4]: http://www.observium.org/wiki/License
 "Observium License"
-[5]: https://github.com/librenms/librenms/blob/master/AUTHORS.md
-"LibreNMS contributor list"
+[5]: https://github.com/speedguzzi/NMS_NG/blob/master/AUTHORS.md
+"NMS_NG contributor list"

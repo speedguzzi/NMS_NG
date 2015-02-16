@@ -16,9 +16,9 @@
 /**
  * TinyDNS DNSSec Graph
  * @author Daniel Preussker <f0o@devilcode.org>
- * @copyright 2015 f0o, LibreNMS
+ * @copyright 2015 f0o, NMS_NG
  * @license GPL
- * @package LibreNMS
+ * @package NMS_NG
  * @subpackage Graphs
  */
 

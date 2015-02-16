@@ -12,18 +12,18 @@ Enter the MySQL root password to enter the MySQL command-line interface.
 Create database.
 
 ```sql
-CREATE DATABASE librenms;
-GRANT ALL PRIVILEGES ON librenms.*
-  TO 'librenms'@'<ip>'
+CREATE DATABASE NMS_NG;
+GRANT ALL PRIVILEGES ON NMS_NG.*
+  TO 'NMS_NG'@'<ip>'
   IDENTIFIED BY '<password>'
 ;
 FLUSH PRIVILEGES;
 exit
 ```
 
-Replace `<ip>` above with the IP of the server running LibreNMS.  If your database is on the same server as LibreNMS, you can just use `localhost` as the IP address.
+Replace `<ip>` above with the IP of the server running NMS_NG.  If your database is on the same server as NMS_NG, you can just use `localhost` as the IP address.
 
-If you are deploying a separate database server, you need to change the `bind-address`.  If your MySQL database resides on the same server as LibreNMS, you should skip this step.
+If you are deploying a separate database server, you need to change the `bind-address`.  If your MySQL database resides on the same server as NMS_NG, you should skip this step.
 
     vim /etc/mysql/my.cnf
 
@@ -44,15 +44,15 @@ Install necessary software.  The packages listed below are an all-inclusive list
 You can clone the repository via HTTPS or SSH.  In either case, you need to ensure the appropriate port (443 for HTTPS, 22 for SSH) is open in the outbound direction for your server.
 
     cd /opt
-    git clone https://github.com/librenms/librenms.git librenms
-    cd /opt/librenms
+    git clone https://github.com/speedguzzi/NMS_NG.git NMS_NG
+    cd /opt/NMS_NG
 
 At this stage you can either launch the web installer by going to http://IP/install.php, follow the onscreen instructions then skip to the 'Web Interface' section further down. Alternatively if you want to continue the setup manually then just keep following these instructions.
 
     cp config.php.default config.php
     vim config.php
 
-> NOTE: The recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command `git clone git@github.com:librenms/librenms.git librenms` instead.
+> NOTE: The recommended method of cloning a git repository is HTTPS.  If you would like to clone via SSH instead, use the command `git clone git@github.com:speedguzzi/NMS_NG.git NMS_NG` instead.
 
 Change the values to the right of the equal sign for lines beginning with `$config[db_]` to match your database information as setup above.
 
@@ -77,9 +77,9 @@ First, create and chown the `rrd` directory and create the `logs` directory
     mkdir rrd logs
     chown www-data:www-data rrd/
 
-Next, add the following to `/etc/lighttpd/librenms.conf`
+Next, add the following to `/etc/lighttpd/NMS_NG.conf`
 
-     server.document-root = "/opt/librenms/html"
+     server.document-root = "/opt/NMS_NG/html"
      url.rewrite-once = (
        "^/(.*)\.(png|css|jpg|gif|php)$" => "/$0",
        "^/([a-z|0-9\-]+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/(.+)/" => "/?page=$1&$2&$3&$4&$5&$6&$7&$8&$9&$10",
@@ -96,7 +96,7 @@ Next, add the following to `/etc/lighttpd/librenms.conf`
 
 Next, add the following to `/etc/lighttpd/lighttpd.conf`
 
-     $HTTP["host"] == "example.com" { include "librenms.conf" }
+     $HTTP["host"] == "example.com" { include "NMS_NG.conf" }
 
 And enable mod_rewrite by uncommenting
      #       "mod_rewrite",
@@ -128,19 +128,19 @@ Discover localhost and poll it for the first time:
 
     php discovery.php -h all && php poller.php -h all
 
-The polling method used by LibreNMS is `poller-wrapper.py`, which was placed in the public domain by its author.  By default, the LibreNMS cronjob runs `poller-wrapper.py` with 16 threads.  The current LibreNMS recommendation is to use 4 threads per core.  The default if no thread count is `16 threads`.
+The polling method used by NMS_NG is `poller-wrapper.py`, which was placed in the public domain by its author.  By default, the NMS_NG cronjob runs `poller-wrapper.py` with 16 threads.  The current NMS_NG recommendation is to use 4 threads per core.  The default if no thread count is `16 threads`.
 
-If the thread count needs to be changed, you can do so by editing `librenms.cron` before copying (or by editing `/etc/cron.d/librenms` if you've already copied the cron file).  Just add a number after `poller-wrapper.py`, as in the below example:
+If the thread count needs to be changed, you can do so by editing `NMS_NG.cron` before copying (or by editing `/etc/cron.d/NMS_NG` if you've already copied the cron file).  Just add a number after `poller-wrapper.py`, as in the below example:
 
-    /opt/librenms/poller-wrapper.py 12 >> /dev/null 2>&1
+    /opt/NMS_NG/poller-wrapper.py 12 >> /dev/null 2>&1
 
 Create the cronjob
 
-    ln -s librenms.cron /etc/cron.d/librenms
+    ln -s NMS_NG.cron /etc/cron.d/NMS_NG
 
 ### Daily Updates ###
 
-LibreNMS performs daily updates by default.  At 00:15 system time every day, a `git pull --no-edit --quiet` is performed.  You can override this default by editing your `config.php` file.  Remove the comment (the `#` mark) on the line:
+NMS_NG performs daily updates by default.  At 00:15 system time every day, a `git pull --no-edit --quiet` is performed.  You can override this default by editing your `config.php` file.  Remove the comment (the `#` mark) on the line:
 
     #$config['update'] = 0;
 

@@ -16,9 +16,9 @@
 /**
  * Two-Factor Authentication Library
  * @author f0o <f0o@devilcode.org>
- * @copyright 2014 f0o, LibreNMS
+ * @copyright 2014 f0o, NMS_NG
  * @license GPL
- * @package LibreNMS
+ * @package NMS_NG
  * @subpackage Authentication
  */
 
