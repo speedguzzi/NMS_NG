@@ -12,12 +12,6 @@ We intend NMS_NG to be a viable project and community that:
 - focuses on the needs of its users, and
 - offers a welcoming, friendly environment for everyone.
 
-The [Debian Social Contract][10] will be the basis of our priority system,
-and mutual respect the basis of our behaviour towards others.  For more
-about the culture we're trying to build, please read the [Freenode
-philosophy][13], including [guidelines for running an IRC channel][6] and
-[being a community catalyst][7].
-
 
 Documentation
 -------------
@@ -32,7 +26,6 @@ Participating
 You can participate in the project by:
 - Joining the [NMS_NG-project][1] mailing list to post questions and
   suggestions.
-- Talking to us on [IRC][4].
 - Improving the [documentation][5].
 - Cloning the [repo][2] and filing bug reports and pull requests on github.
   See [CONTRIBUTING][15] for more details.
@@ -47,7 +40,7 @@ License
 -------
 
 Copyright (C) 2006-2012 Adam Armstrong <adama@memetic.org>
-Copyright (C) 2013-2014 by individual NMS_NG contributors
+Copyright (C) 2013-2014 by individual LibreNMS contributors
 Copyright (C) 2015-2015 by individual NMS_NG contributors
 
  This program is free software: you can redistribute it and/or modify
@@ -85,16 +78,10 @@ exception):
   - check_mk (scripts/observium_agent*): GPLv2
   - qTip (html/css/jquery.qtip.min.css and html/js/qtip/jquery.qtip.min.js): GPLv2
 
-[1]: https://groups.google.com/forum/#!forum/NMS_NG-project "NMS_NG"
 [2]: https://github.com/speedguzzi/NMS_NG "Main NMS_NG GitHub repo"
-[4]: irc://irc.freenode.net/##NMS_NG "NMS_NG IRC channel"
 [5]: https://github.com/speedguzzi/NMS_NG/tree/master/doc/
-[6]: http://freenode.net/channel_guidelines.shtml "Freenode channel guidelines"
-[7]: http://freenode.net/catalysts.shtml "Freenode community catalysts"
 [8]: http://observium.org/ "Observium web site"
-[9]: http://observium.org/ "Observium web site"
 [10]: http://www.debian.org/social_contract "Debian project social contract"
 [12]: https://github.com/speedguzzi/NMS_NG/tree/master/doc/Observium_Welcome.md
-[13]: http://freenode.net/philosophy.shtml "Freenode philosophy"
 [14]: https://github.com/speedguzzi/NMS_NG/tree/master/LICENSE.txt
 [15]: https://github.com/speedguzzi/NMS_NG/tree/master/doc/CONTRIBUTING.md

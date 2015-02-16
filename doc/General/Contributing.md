@@ -76,10 +76,6 @@ General Guidelines
   you need to reformat it after making the change, do so in a separate
   commit.
 
-- Please join us in IRC at irc.freenode.net in channel ##NMS_NG if you're
-  able.  Collaborating in real time makes the coordination of contributions
-  easier.
-
 
 Integrating other code
 ----------------------
